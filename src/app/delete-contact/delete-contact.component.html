@@ -1,0 +1,35 @@
+<div class="container">
+    <div class="h3 text-center">Delete contact</div>
+  
+    <div class="form-group">
+        <label class="h5" for="firstName">First Name</label>
+        <input readonly type="text" name="firstName" id="firstName" class="form-control" value="{{contact.firstName}}" required>
+      </div>
+    
+      <div class="form-group">
+        <label class="h5" for="lastName">Last Name</label>
+        <input readonly type="text" name="lastName" id="lastName" class="form-control" value="{{contact.lastName}}">
+      </div>
+    
+      <div class="form-group">
+        <label class="h5" for="gender">Gender</label>
+        <input readonly type="text" name="gender" id="gender" class="form-control" value="{{contact.gender | titlecase}}">
+      </div>
+    
+      <div class="form-group">
+        <label class="h5" for="age">Age</label>
+        <input readonly type="text" name="age" id="age" class="form-control" value="{{contact.age}}">
+      </div>
+    
+      <div class="form-group">
+        <label class="h5" for="address">Address</label>
+        <input readonly type="text" name="address" id="address" class="form-control" value="{{contact.address}}">
+      </div>
+    
+      <div class="form-group">
+        <label class="h5" for="phone">Phone Number</label>
+        <input readonly type="text" name="phone" id="phone" class="form-control" value="{{contact.phone}}" required>
+      </div>
+    
+      <input type="submit" class="btn btn-danger text-white" value="Delete the contact" (click)="delete()">
+  </div>

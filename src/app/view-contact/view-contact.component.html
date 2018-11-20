@@ -1,0 +1,29 @@
+<div class="container">
+  <table class="table table-striped table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th>Fist Name</th>
+        <th>Last Name</th>
+        <th>Gender</th>
+        <th>Age</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let contact of contacts">
+        <td scope="row">{{contact.firstName}}</td>
+        <td scope="row">{{contact.lastName}}</td>
+        <td scope="row">{{contact.gender}}</td>
+        <td scope="row">{{contact.age}}</td>
+        <td scope="row">{{contact.address}}</td>
+        <td scope="row">{{contact.phone}}</td>
+        <td scope="row">
+          <a routerLink="/edit-contact/{{contact.id}}" class="text-success mr-3">Edit</a>
+          <a routerLink="/delete-contact/{{contact.id}}" class="text-danger">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
