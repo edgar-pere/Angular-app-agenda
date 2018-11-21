@@ -8,18 +8,13 @@ import { ContactsService } from '../services/contacts.service';
   styleUrls: ['./view-contact.component.css']
 })
 export class ViewContactComponent implements OnInit {
+  // Se espera recibir un array que contenga a los contactos en forma de objeto
   contacts:Contact[];
 
   constructor(private contactsService: ContactsService) {
+    // Se obtienen todos los contactos que existen actualmente en la BD firebase
     this.contactsService.getContacts().valueChanges().subscribe((value: Contact[]) => {
       this.contacts = value;
-      console.log(this.contacts);
-    });
-
-    this.contactsService.getContactByID("1542753453899").valueChanges().subscribe(value => {
-      let user = value;
-      console.log("Get by ID ");
-      console.log(user)
     });
   }
 

@@ -1,37 +1,52 @@
+<!--
+View para eliminar/borrar un contacto existente, se puede llegar hasta acá
+accediendo desde el enlace/boton DELETE del registro en la tabla
+de la pantalla principal
+-->
+
 <div class="container" *ngIf="contact">
   <div class="h3 text-center text-danger">Delete contact</div>
+
     <div class="row align-items-center justify-content-center">
       <div class="col-6 border border-dark p-3 rounded">
+
+        <!-- Se muestra el firstName del usuario a borrar -->
         <div class="form-group">
           <label class="h5" for="firstName"><i class="fa fa-user mr-2" aria-hidden="true"></i>Fist Name</label>
           <input readonly type="text" name="firstName" id="firstName" class="form-control" value="{{contact.firstName}}" required>
         </div>
       
+        <!-- Se muestra el lastName del usuario a borrar -->
         <div class="form-group">
           <label class="h5" for="lastName"><i class="fa fa-user mr-2" aria-hidden="true"></i>Last Name</label>
           <input readonly type="text" name="lastName" id="lastName" class="form-control" value="{{contact.lastName}}">
         </div>
       
+        <!-- Se muestra el gender del usuario a borrar -->
         <div class="form-group">
           <label class="h5" for="gender"><i class="fa fa-venus-mars mr-2" aria-hidden="true"></i>Gender</label>
           <input readonly type="text" name="gender" id="gender" class="form-control" value="{{contact.gender | titlecase}}">
         </div>
       
+        <!-- Se muestra el age del usuario a borrar -->
         <div class="form-group">
           <label class="h5" for="age"><i class="fa fa-calendar mr-2" aria-hidden="true"></i>Age</label>
           <input readonly type="text" name="age" id="age" class="form-control" value="{{contact.age}}">
         </div>
       
+        <!-- Se muestra el address del usuario a borrar -->
         <div class="form-group">
           <label class="h5" for="address"><i class="fa fa-map-marker mr-2" aria-hidden="true"></i>Address</label>
           <input readonly type="text" name="address" id="address" class="form-control" value="{{contact.address}}">
         </div>
       
+        <!-- Se muestra el phone del usuario a borrar -->
         <div class="form-group">
           <label class="h5" for="phone"><i class="fa fa-phone mr-2" aria-hidden="true"></i>Phone Number</label>
           <input readonly type="text" name="phone" id="phone" class="form-control" value="{{contact.phone}}" required>
         </div>
       
+        <!-- Boton para eliminar/borrar el contacto existente, pide confirmacion -->
         <button class="btn btn-danger text-white" (click)="delete()"><i class="fa fa-trash mr-2" aria-hidden="true"></i>Delete contact</button>
     </div>
   </div>

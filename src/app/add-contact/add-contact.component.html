@@ -1,18 +1,27 @@
+<!--
+View para añadir/crear un nuevo contacto, se puede llegar hasta acá
+accediendo desde el navbar principal que aparece en todas las pantallas
+-->
+
 <div class="container">
   <div class="h3 text-center">Add new contact</div>
 
   <div class="row align-items-center justify-content-center">
     <div class="col-6 border border-dark p-3 rounded">
+
+      <!-- Input para firstName -->
       <div class="form-group">
         <label class="h5" for="firstName"><i class="fa fa-user mr-2" aria-hidden="true"></i>Fist Name</label>
         <input type="text" name="firstName" id="firstName" class="form-control" placeholder="Enter the first name of the contact" [(ngModel)]="firstName" required>
       </div>
 
+      <!-- Input para ñastName -->
       <div class="form-group">
         <label class="h5" for="lastName"><i class="fa fa-user mr-2" aria-hidden="true"></i>Last Name</label>
         <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Enter the last name of the contact" [(ngModel)]="lastName">
       </div>
 
+      <!-- Input para gender -->
       <div class="form-group">
         <label class="h5" for="gender"><i class="fa fa-venus-mars mr-2" aria-hidden="true"></i>Gender</label>
         <br>
@@ -26,22 +35,28 @@
         <input class="ml-3" type="radio" name="gender" id="female" value="female" [(ngModel)]="gender">
       </div>
 
+      <!-- Input para age -->
       <div class="form-group">
         <label class="h5" for="age"><i class="fa fa-calendar mr-2" aria-hidden="true"></i>Age</label>
         <input type="number" name="age" id="age" class="form-control" placeholder="Enter the age of the contact" min="0" [(ngModel)]="age">
       </div>
 
+      <!-- Input para address -->
       <div class="form-group">
         <label class="h5" for="address"><i class="fa fa-map-marker mr-2" aria-hidden="true"></i>Address</label>
         <input type="text" name="address" id="address" class="form-control" placeholder="Enter the address of the contact" [(ngModel)]="address">
       </div>
 
+      <!-- Input para phone -->
       <div class="form-group">
         <label class="h5" for="phone"><i class="fa fa-phone mr-2" aria-hidden="true"></i>Phone Number</label>
         <input type="number" name="phone" id="phone" class="form-control" placeholder="Enter the phone number of the contact" min="0" [(ngModel)]="phone" required>
       </div>
 
+      <!-- Boton de añadir/crear un contacto nuevo -->
       <button class="btn btn-primary text-white" (click)="add()"><i class="fa fa-paper-plane mr-2" aria-hidden="true"></i>Add new contact</button>
+      
+      <!-- Boton para limpiar los campos del formulario -->
       <button class="btn btn-secondary text-white ml-3" (click)="empty()"><i class="fa fa-eraser mr-2" aria-hidden="true"></i>Empty fields</button>
     </div>
   </div>
