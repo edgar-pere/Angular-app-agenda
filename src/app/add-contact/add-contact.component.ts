@@ -8,15 +8,15 @@ import { ContactsService } from '../services/contacts.service';
   styleUrls: ['./add-contact.component.css']
 })
 export class AddContactComponent implements OnInit {
-  contact:Contact;
+  contact: Contact;
 
   // Campos de el formulario
-  firstName:string;
-  lastName:string;
-  gender:string;
-  age:number;
-  address:string;
-  phone:number;
+  firstName: string;
+  lastName: string;
+  gender: string;
+  age: number;
+  address: string;
+  phone: number;
 
   constructor(private contactsService: ContactsService) { }
 
@@ -27,7 +27,7 @@ export class AddContactComponent implements OnInit {
   add() {
     // Se espera recibir almenos un nombre y un numero de telefono
     if (!this.firstName || !this.phone) {
-      return alert("You must enter a name and a phone number");
+      return alert('You must enter a name and a phone number');
     }
 
     // Se arma el contacto que se agregará a firebase
@@ -39,7 +39,7 @@ export class AddContactComponent implements OnInit {
       age: this.age || null,
       address: this.address || null,
       phone: this.phone
-    }
+    };
 
     console.log(this.contact);
 
@@ -48,7 +48,7 @@ export class AddContactComponent implements OnInit {
     this.contactsService.addContact(this.contact).then(res => {
       // Se ingresa acá si el contacto se agregó correctamente
 
-      alert("Successfully added contact");
+      alert('Successfully added contact');
       console.log(res);
 
       // Se limpian los campos del formulario
@@ -56,7 +56,7 @@ export class AddContactComponent implements OnInit {
 
     }).catch(err => {
       // Se ingresa acá si el contacto NO se agregó correctamente
-      alert("There was an error adding the contact");
+      alert('There was an error adding the contact');
       console.error(err);
     });
   }

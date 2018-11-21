@@ -9,7 +9,7 @@ import { ContactsService } from '../services/contacts.service';
 })
 export class ViewContactComponent implements OnInit {
   // Se espera recibir un array que contenga a los contactos en forma de objeto
-  contacts:Contact[];
+  contacts: Contact[];
 
   constructor(private contactsService: ContactsService) {
     // Se obtienen todos los contactos que existen actualmente en la BD firebase

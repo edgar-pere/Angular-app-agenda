@@ -28,7 +28,7 @@ export class ContactsService {
   // Se añade un nuevo contacto, se espera por parametro un objeto contacto
   // se obtiene su ID para indicarle a firebase el ID del nuevo registro, y se
   // asigna el objeto recibido por por parametro
-  addContact(contact:Contact) {
+  addContact(contact: Contact) {
     return this.angularFireDatabase.object(`/contacts/${contact.id}`).set(contact);
   }
 

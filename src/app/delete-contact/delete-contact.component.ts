@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactsService } from '../services/contacts.service';
 import { Contact } from '../interfaces/contact';
-import { ActivatedRoute, Router } from "@angular/router";
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-delete-contact',
@@ -9,8 +9,8 @@ import { ActivatedRoute, Router } from "@angular/router";
   styleUrls: ['./delete-contact.component.css']
 })
 export class DeleteContactComponent implements OnInit {
-  contact:Contact;
-  deleteID:string;
+  contact: Contact;
+  deleteID: string;
 
   constructor(private contactsService: ContactsService, private _route: ActivatedRoute, private router: Router) {
     // Se obtiene el ID del contacto a eliminar que viene en la URL
@@ -28,10 +28,9 @@ export class DeleteContactComponent implements OnInit {
   }
 
   // Este metodo se llama al hacer click en el boton Delete contact
-  delete(){
+  delete() {
     // Pide confirmacion al hacer click en el boton Delete contact
-    let sure = confirm("Are you sure to eliminate this contact? This action can not be reversed");
-    
+    const sure = confirm('Are you sure to eliminate this contact? This action can not be reversed');
     // Si se acepta la confirmación se procede a eliminar el contacto
     if (sure) {
 
@@ -39,13 +38,13 @@ export class DeleteContactComponent implements OnInit {
       // un contacto, este contacto fue obtenido con su ID
       this.contactsService.deleteContact(this.deleteID).then(res => {
         // Si se ingresa acá el contacto fue eliminado exitosamente
-        alert("Contact successfully removed");
+        alert('Contact successfully removed');
 
         // Se redirige la pagina a /home
         this.router.navigate(['/home']);
       }).catch(err => {
         // Si se ingresa acá el contacto NO fue eliminado exitosamente
-        alert("There was an error deleting the contact");
+        alert('There was an error deleting the contact');
         console.error(err);
       });
     }
