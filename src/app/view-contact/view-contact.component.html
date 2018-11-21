@@ -15,7 +15,7 @@
       <tr *ngFor="let contact of contacts">
         <td scope="row">{{contact.firstName}}</td>
         <td scope="row">{{contact.lastName}}</td>
-        <td scope="row">{{contact.gender}}</td>
+        <td scope="row">{{contact.gender | titlecase}}</td>
         <td scope="row">{{contact.age}}</td>
         <td scope="row">{{contact.address}}</td>
         <td scope="row">{{contact.phone}}</td>

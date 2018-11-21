@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ContactsService } from '../services/contacts.service';
 import { Contact } from '../interfaces/contact';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
   selector: 'app-delete-contact',
@@ -9,12 +9,16 @@ import { ActivatedRoute } from "@angular/router";
   styleUrls: ['./delete-contact.component.css']
 })
 export class DeleteContactComponent implements OnInit {
-  contact:Contact;
+  // contact:Contact;
+  contact
   deleteID;
 
-  constructor(private contactsService: ContactsService, private _route: ActivatedRoute) {
+  constructor(private contactsService: ContactsService, private _route: ActivatedRoute, private router: Router) {
     this.deleteID = this._route.snapshot.paramMap.get('id');
-    this.contact = this.contactsService.getContactByID(this.deleteID)[0];
+    this.contactsService.getContactByID(this.deleteID).valueChanges().subscribe((value: Contact) => {
+      this.contact = value;
+      console.log(this.contact);
+    });
     console.log(this.deleteID);
   }
 
@@ -22,7 +26,16 @@ export class DeleteContactComponent implements OnInit {
   }
 
   delete(){
-    return console.log(this.deleteID);
+    let sure = confirm("Are you sure?");
+    if (sure) {
+      this.contactsService.deleteContact(this.deleteID).then(res => {
+        alert("Success");
+        this.router.navigate(['/home']);
+      }).catch(err => {
+        alert("Error");
+        console.error(err);
+      });
+    }
   }
 
 }

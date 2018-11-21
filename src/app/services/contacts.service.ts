@@ -1,5 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Contact } from '../interfaces/contact';
+import { AngularFirestore } from 'angularfire2/firestore';
+import { Observable } from "rxjs";
+import {AngularFireDatabase} from 'angularfire2/database';
 
 @Injectable({
   providedIn: 'root'
@@ -12,17 +15,25 @@ export class ContactsService {
     {id: 4, firstName: "Jose4", lastName: "Padrón", gender: "male", age: 19, address: "Barcelona", phone: 4248022618}
   ];
 
-  constructor() { }
+  constructor(private angularFireDatabase: AngularFireDatabase) { }
 
   getContacts() {
-    return this.contacts;
+    return this.angularFireDatabase.list('/contacts');
   }
 
   getContactByID(id) {
-    let result = this.contacts.filter(contact => {
-      return contact.id == id
-    });
+    return this.angularFireDatabase.object(`/contacts/${id}`);
+  }
 
-    return result;
+  editContact(contact) {
+    return this.angularFireDatabase.object(`/contacts/${contact.id}`).update(contact);
+  }
+
+  addContact(contact:Contact) {
+    return this.angularFireDatabase.object(`/contacts/${contact.id}`).set(contact);
+  }
+
+  deleteContact(id) {
+    return this.angularFireDatabase.database.ref().child(`/contacts/${id}`).remove();
   }
 }

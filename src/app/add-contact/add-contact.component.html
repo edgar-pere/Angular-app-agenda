@@ -1,44 +1,48 @@
 <div class="container">
   <div class="h3 text-center">Add new contact</div>
 
-  <div class="form-group">
-    <label class="h5" for="firstName">First Name</label>
-    <input type="text" name="firstName" id="firstName" class="form-control" placeholder="Enter the first name of the contact" [(ngModel)]="firstName" required>
+  <div class="row align-items-center justify-content-center">
+    <div class="col-6 border border-dark p-3 rounded">
+      <div class="form-group">
+        <label class="h5" for="firstName">First Name</label>
+        <input type="text" name="firstName" id="firstName" class="form-control" placeholder="Enter the first name of the contact" [(ngModel)]="firstName" required>
+      </div>
+
+      <div class="form-group">
+        <label class="h5" for="lastName">Last Name</label>
+        <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Enter the last name of the contact" [(ngModel)]="lastName">
+      </div>
+
+      <div class="form-group">
+        <label class="h5" for="gender">Gender</label>
+        <br>
+
+        <label for="male">Male</label>
+        <input class="ml-3" type="radio" name="gender" id="male" value="male" [(ngModel)]="gender">
+        
+        <br>
+
+        <label for="female">Female</label>
+        <input class="ml-3" type="radio" name="gender" id="female" value="female" [(ngModel)]="gender">
+      </div>
+
+      <div class="form-group">
+        <label class="h5" for="age">Age</label>
+        <input type="number" name="age" id="age" class="form-control" placeholder="Enter the age of the contact" min="0" [(ngModel)]="age">
+      </div>
+
+      <div class="form-group">
+        <label class="h5" for="address">Address</label>
+        <input type="text" name="address" id="address" class="form-control" placeholder="Enter the address of the contact" [(ngModel)]="address">
+      </div>
+
+      <div class="form-group">
+        <label class="h5" for="phone">Phone Number</label>
+        <input type="number" name="phone" id="phone" class="form-control" placeholder="Enter the phone number of the contact" min="0" [(ngModel)]="phone" required>
+      </div>
+
+      <input type="submit" class="btn btn-primary text-white" value="Add new contact" (click)="add()">
+      <button class="btn btn-secondary text-white ml-3" (click)="empty()">Empty fields</button>
+    </div>
   </div>
-
-  <div class="form-group">
-    <label class="h5" for="lastName">Last Name</label>
-    <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Enter the last name of the contact" [(ngModel)]="lastName">
-  </div>
-
-  <div class="form-group">
-    <label class="h5" for="gender">Gender</label>
-    <br>
-
-    <label for="male">Male</label>
-    <input class="ml-3" type="radio" name="gender" id="male" value="male" [(ngModel)]="gender">
-    
-    <br>
-
-    <label for="female">Female</label>
-    <input class="ml-3" type="radio" name="gender" id="female" value="female" [(ngModel)]="gender">
-  </div>
-
-  <div class="form-group">
-    <label class="h5" for="age">Age</label>
-    <input type="number" name="age" id="age" class="form-control" placeholder="Enter the age of the contact" min="0" [(ngModel)]="age">
-  </div>
-
-  <div class="form-group">
-    <label class="h5" for="address">Address</label>
-    <input type="text" name="address" id="address" class="form-control" placeholder="Enter the address of the contact" [(ngModel)]="address">
-  </div>
-
-  <div class="form-group">
-    <label class="h5" for="phone">Phone Number</label>
-    <input type="number" name="phone" id="phone" class="form-control" placeholder="Enter the phone number of the contact" min="0" [(ngModel)]="phone" required>
-  </div>
-
-  <input type="submit" class="btn btn-primary text-white" value="Add new contact" (click)="add()">
-  <button class="btn btn-secondary text-white ml-3">Empty fields</button>
 </div>

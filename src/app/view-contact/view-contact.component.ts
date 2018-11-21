@@ -11,8 +11,16 @@ export class ViewContactComponent implements OnInit {
   contacts:Contact[];
 
   constructor(private contactsService: ContactsService) {
-    this.contacts = this.contactsService.getContacts();
-    console.log(this.contacts)
+    this.contactsService.getContacts().valueChanges().subscribe((value: Contact[]) => {
+      this.contacts = value;
+      console.log(this.contacts);
+    });
+
+    this.contactsService.getContactByID("1542753453899").valueChanges().subscribe(value => {
+      let user = value;
+      console.log("Get by ID ");
+      console.log(user)
+    });
   }
 
   ngOnInit() {

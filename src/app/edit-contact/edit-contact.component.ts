@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from "@angular/router";
+import { ActivatedRoute, Router } from "@angular/router";
 import { ContactsService } from '../services/contacts.service';
 import { Contact } from '../interfaces/contact';
 
@@ -9,13 +9,18 @@ import { Contact } from '../interfaces/contact';
   styleUrls: ['./edit-contact.component.css']
 })
 export class EditContactComponent implements OnInit {
-  contact:Contact;
+  // contact:Contact;
+  contact;
   editID;
 
-  constructor(private contactsService: ContactsService, private _route: ActivatedRoute) {
+  constructor(private contactsService: ContactsService, private _route: ActivatedRoute, private router: Router) {
     this.editID = this._route.snapshot.paramMap.get('id');
-    this.contact = this.contactsService.getContactByID(this.editID)[0];
-    console.log(this.contact);
+
+    this.contactsService.getContactByID(this.editID).valueChanges().subscribe((value: Contact) => {
+      this.contact = value;
+      console.log(this.contact);
+    });
+
   }
 
   ngOnInit() {
@@ -26,7 +31,22 @@ export class EditContactComponent implements OnInit {
       return alert("You must enter a name and a phone number");
     }
 
-    console.log(this.contact);
+    this.contactsService.editContact(this.contact).then(res => {
+      alert("Success");
+      console.log(res);
+      this.router.navigate(['/home']);
+    }).catch(err => {
+      alert("error");
+      console.error(err);
+    })
   }
 
+  empty() {
+    this.contact.firstName = null;
+    this.contact.lastName = null;
+    this.contact.gender = null;
+    this.contact.age = null;
+    this.contact.address = null;
+    this.contact.phone = null;
+  }
 }

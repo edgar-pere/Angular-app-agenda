@@ -8,6 +8,12 @@ import { DeleteContactComponent } from './delete-contact/delete-contact.componen
 import { ViewContactComponent } from './view-contact/view-contact.component';
 import { FormsModule } from '@angular/forms';
 import { AboutComponent } from './about/about.component';
+import { AngularFireModule } from "angularfire2";
+import { AngularFirestoreModule } from "angularfire2/firestore";
+import { AngularFireStorageModule } from "angularfire2/storage";
+import { AngularFireAuthModule } from "angularfire2/auth";
+import { AngularFireDatabaseModule } from "angularfire2/database";
+import { environment } from "../environments/environment";
 
 const appRoutes: Routes = [
   {path: '', component: ViewContactComponent},
@@ -30,7 +36,12 @@ const appRoutes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(appRoutes),
-    FormsModule
+    FormsModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule,
+    AngularFireStorageModule,
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   providers: [],
   bootstrap: [AppComponent]

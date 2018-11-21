@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Contact } from '../interfaces/contact';
+import { ContactsService } from '../services/contacts.service';
 
 @Component({
   selector: 'app-add-contact',
@@ -15,7 +16,7 @@ export class AddContactComponent implements OnInit {
   address:string;
   phone:number;
 
-  constructor() { }
+  constructor(private contactsService: ContactsService) { }
 
   ngOnInit() {
   }
@@ -28,14 +29,32 @@ export class AddContactComponent implements OnInit {
     this.contact = {
       id: Date.now(),
       firstName: this.firstName,
-      lastName: this.lastName,
-      gender: this.gender,
-      age: this.age,
-      address: this.address,
+      lastName: this.lastName || null,
+      gender: this.gender || null,
+      age: this.age || null,
+      address: this.address || null,
       phone: this.phone
     }
 
     console.log(this.contact);
+    this.contactsService.addContact(this.contact).then(res => {
+      alert("Success");
+      console.log(res);
+
+      this.empty();
+
+    }).catch(err => {
+      alert("Error");
+      console.error(err);
+    });
   }
 
+  empty() {
+    this.firstName = null;
+    this.lastName = null;
+    this.gender = null;
+    this.age = null;
+    this.address = null;
+    this.phone = null;
+  }
 }
