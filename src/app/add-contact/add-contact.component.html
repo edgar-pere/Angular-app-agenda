@@ -15,7 +15,7 @@ accediendo desde el navbar principal que aparece en todas las pantallas
         <input type="text" name="firstName" id="firstName" class="form-control" placeholder="Enter the first name of the contact" [(ngModel)]="firstName" required>
       </div>
 
-      <!-- Input para ñastName -->
+      <!-- Input para lastName -->
       <div class="form-group">
         <label class="h5" for="lastName"><i class="fa fa-user mr-2" aria-hidden="true"></i>Last Name</label>
         <input type="text" name="lastName" id="lastName" class="form-control" placeholder="Enter the last name of the contact" [(ngModel)]="lastName">
@@ -54,7 +54,7 @@ accediendo desde el navbar principal que aparece en todas las pantallas
       </div>
 
       <!-- Boton de añadir/crear un contacto nuevo -->
-      <button class="btn btn-primary text-white" (click)="add()"><i class="fa fa-paper-plane mr-2" aria-hidden="true"></i>Add new contact</button>
+      <button class="btn btn-primary text-white" id="addButton" (click)="add()"><i class="fa fa-paper-plane mr-2" aria-hidden="true"></i>Add new contact</button>
       
       <!-- Boton para limpiar los campos del formulario -->
       <button class="btn btn-secondary text-white ml-3" (click)="empty()"><i class="fa fa-eraser mr-2" aria-hidden="true"></i>Empty fields</button>

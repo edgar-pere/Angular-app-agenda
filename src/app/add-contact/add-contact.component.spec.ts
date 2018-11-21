@@ -1,5 +1,4 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { FormsModule } from '@angular/forms';
 import { AddContactComponent } from './add-contact.component';
 import { AppModule } from '../app.module';
 
@@ -9,8 +8,10 @@ describe('AddContactComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ FormsModule, AppModule],
-      declarations: [ AddContactComponent ]
+      imports: [
+        AppModule
+      ],
+      declarations: []
     })
     .compileComponents();
   }));
@@ -24,4 +25,25 @@ describe('AddContactComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render input firstName in a input#firstName tag', async(() => {
+    fixture = TestBed.createComponent(AddContactComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('input#firstName')).toBeTruthy();
+  }));
+
+  it('should render input phone in a input#phone tag', async(() => {
+    fixture = TestBed.createComponent(AddContactComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('input#phone')).toBeTruthy();
+  }));
+
+  it('should render add button in a button#addButton tag', async(() => {
+    fixture = TestBed.createComponent(AddContactComponent);
+    fixture.detectChanges();
+    const compiled = fixture.debugElement.nativeElement;
+    expect(compiled.querySelector('button#addButton')).toBeTruthy();
+  }));
 });

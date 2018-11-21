@@ -3,14 +3,14 @@
 <div class="container-fluid bg-dark text-white mb-3">
   <div class="container bg-dark">
     <nav class="navbar navbar-expand navbar-dark">
-      <a class="navbar-brand" routerLink="/home"><img src="./assets/logo.jpg" style="height: 40px; width: 40px;" alt="logo"></a>
+      <a class="navbar-brand" id="logo" routerLink="/home"><img src="./assets/logo.jpg" style="height: 40px; width: 40px;" alt="logo"></a>
 
       <div class="navbar-nav">
-        <a class="nav-item nav-link" routerLink="/home" routerLinkActive="active"><i class="fa fa-home mr-2" aria-hidden="true"></i>Home</a>
-        <a class="nav-item nav-link text-success" routerLink="/add-contact" routerLinkActive="active"><i class="fa fa-plus-square-o mr-2" aria-hidden="true"></i>Add new contact</a>
+        <a class="nav-item nav-link" id="homeButton" routerLink="/home" routerLinkActive="active"><i class="fa fa-home mr-2" aria-hidden="true"></i>Home</a>
+        <a class="nav-item nav-link text-success" id="addNewContactButton" routerLink="/add-contact" routerLinkActive="active"><i class="fa fa-plus-square-o mr-2" aria-hidden="true"></i>Add new contact</a>
 
       </div>
-      <a class="nav-item nav-link ml-auto text-secondary" routerLink="/about"><i class="fa fa-info mr-2" aria-hidden="true"></i>About</a>
+      <a class="nav-item nav-link ml-auto text-secondary" id="aboutButton" routerLink="/about"><i class="fa fa-info mr-2" aria-hidden="true"></i>About</a>
     </nav>
   </div>
 </div>
