@@ -26,13 +26,13 @@ export class DeleteContactComponent implements OnInit {
   }
 
   delete(){
-    let sure = confirm("Are you sure?");
+    let sure = confirm("Are you sure to eliminate this contact? This action can not be reversed");
     if (sure) {
       this.contactsService.deleteContact(this.deleteID).then(res => {
-        alert("Success");
+        alert("Contact successfully removed");
         this.router.navigate(['/home']);
       }).catch(err => {
-        alert("Error");
+        alert("There was an error deleting the contact");
         console.error(err);
       });
     }

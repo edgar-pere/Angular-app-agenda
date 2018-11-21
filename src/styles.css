@@ -1,2 +1,8 @@
-/* You can add global styles to this file, and also import other style files */
+/*
+  Hojas de estilos externas
+*/
 @import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+/*
+  Fin hojas de estilos externas
+*/

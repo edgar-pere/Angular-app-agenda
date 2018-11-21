@@ -32,11 +32,11 @@ export class EditContactComponent implements OnInit {
     }
 
     this.contactsService.editContact(this.contact).then(res => {
-      alert("Success");
+      alert("The contact has been edited correctly");
       console.log(res);
       this.router.navigate(['/home']);
     }).catch(err => {
-      alert("error");
+      alert("There was an error while editing the contact");
       console.error(err);
     })
   }

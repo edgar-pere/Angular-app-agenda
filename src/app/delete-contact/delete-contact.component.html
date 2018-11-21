@@ -1,38 +1,38 @@
 <div class="container" *ngIf="contact">
-  <div class="h3 text-center">Delete contact</div>
+  <div class="h3 text-center text-danger">Delete contact</div>
     <div class="row align-items-center justify-content-center">
       <div class="col-6 border border-dark p-3 rounded">
         <div class="form-group">
-          <label class="h5" for="firstName">First Name</label>
+          <label class="h5" for="firstName"><i class="fa fa-user mr-2" aria-hidden="true"></i>Fist Name</label>
           <input readonly type="text" name="firstName" id="firstName" class="form-control" value="{{contact.firstName}}" required>
         </div>
       
         <div class="form-group">
-          <label class="h5" for="lastName">Last Name</label>
+          <label class="h5" for="lastName"><i class="fa fa-user mr-2" aria-hidden="true"></i>Last Name</label>
           <input readonly type="text" name="lastName" id="lastName" class="form-control" value="{{contact.lastName}}">
         </div>
       
         <div class="form-group">
-          <label class="h5" for="gender">Gender</label>
+          <label class="h5" for="gender"><i class="fa fa-venus-mars mr-2" aria-hidden="true"></i>Gender</label>
           <input readonly type="text" name="gender" id="gender" class="form-control" value="{{contact.gender | titlecase}}">
         </div>
       
         <div class="form-group">
-          <label class="h5" for="age">Age</label>
+          <label class="h5" for="age"><i class="fa fa-calendar mr-2" aria-hidden="true"></i>Age</label>
           <input readonly type="text" name="age" id="age" class="form-control" value="{{contact.age}}">
         </div>
       
         <div class="form-group">
-          <label class="h5" for="address">Address</label>
+          <label class="h5" for="address"><i class="fa fa-map-marker mr-2" aria-hidden="true"></i>Address</label>
           <input readonly type="text" name="address" id="address" class="form-control" value="{{contact.address}}">
         </div>
       
         <div class="form-group">
-          <label class="h5" for="phone">Phone Number</label>
+          <label class="h5" for="phone"><i class="fa fa-phone mr-2" aria-hidden="true"></i>Phone Number</label>
           <input readonly type="text" name="phone" id="phone" class="form-control" value="{{contact.phone}}" required>
         </div>
       
-        <input type="submit" class="btn btn-danger text-white" value="Delete the contact" (click)="delete()">
+        <button class="btn btn-danger text-white" (click)="delete()"><i class="fa fa-trash mr-2" aria-hidden="true"></i>Delete contact</button>
     </div>
   </div>
 </div>

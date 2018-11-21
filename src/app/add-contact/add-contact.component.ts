@@ -38,13 +38,13 @@ export class AddContactComponent implements OnInit {
 
     console.log(this.contact);
     this.contactsService.addContact(this.contact).then(res => {
-      alert("Success");
+      alert("Successfully added contact");
       console.log(res);
 
       this.empty();
 
     }).catch(err => {
-      alert("Error");
+      alert("There was an error adding the contact");
       console.error(err);
     });
   }
