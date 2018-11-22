@@ -48,7 +48,7 @@ export class AddContactComponent implements OnInit {
     this.contactsService.addContact(this.contact).then(res => {
       // Se ingresa acá si el contacto se agregó correctamente
 
-      alert('Successfully added contact');
+      // alert('Successfully added contact');
       console.log(res);
 
       // Se limpian los campos del formulario
